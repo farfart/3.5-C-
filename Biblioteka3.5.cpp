@@ -11,9 +11,10 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-
-
-
+    cout <<"Введіть розмірність масиву:"<< endl;
+    cin>> "кількість рядків: ">>a>>endl;
+    cin>> "кількість колонок: ">>b>>endl;
+    void Matrix (double**d, int a, int b); 
     do
     {
         int choise;
