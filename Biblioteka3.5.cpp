@@ -2,7 +2,7 @@
 * Розробити бібліотеку функцій для роботи з матрицями дробових чисел(ініціалізація,
     виведення на екран, видалення та додавання елементів, рядків).
 */
-
+#include "biblioteka_3.5"
 #include <iostream>
 #include<Windows.h>
 using namespace std;
@@ -12,8 +12,7 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    int a = 7;
-    int b = 7;
+
 
     do
     {
@@ -28,9 +27,55 @@ int main()
         switch (choise)
         {
         case 1:
-
-
+            cout << " Введіть х та у позицію елемента по черзі"<< endl; 
+            cin >> i>> endl; 
+            cin>>j>>endl;
+            cout<<"Введіть ваш елемент"<<endl;
+            cin>>elem;
+            if(i<a && j<b)
+            {
+                void add_elem(double** d, int i, int j, double elem);
+                cout <<endl;
+                void print(double** d, int a, int b);
+                cout <<endl;
+                break;
+            }
+            else
+            {
+                cout <<"Позиції х та у виходять за межі масиву";
+                break;
+            }
+            case 2: 
+            double** add_rows(double** d, int a, int b);
+            cout << endl; 
+            void print(double** d, int a, int b);
+            cout <<endl;
+            break;
+            case 3:
+            cout << " Введіть х та у позицію елемента по черзі"<< endl; 
+            cin >> i>> endl; 
+            cin >>j>>endl;
+            if(i<a && j<b)
+            {
+                void delet_elem (double** d, int a, int b);
+                cout <<endl;
+                void print(double** d, int a, int b);
+                cout <<endl;
+                break;
+            }
+            else
+            {
+                cout <<"Позиції х та у виходять за межі масиву";
+                break;
+            }
+            case 4:
+            double** delet_rows(double** d, int a, int b);
+            cout<<endl;
+            void print(double** d, int a, int b);
+            cout <<endl;
+            break;
         default:
+            cout <<"Помилка, виберіть один з заданих варіантів";
             break;
         }
 
