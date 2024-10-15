@@ -11,10 +11,18 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+    double **d;
+    int a;
+    int b;
+    
+    
     cout <<"Введіть розмірність масиву:"<< endl;
     cin>> "кількість рядків: ">>a>>endl;
     cin>> "кількість колонок: ">>b>>endl;
-    void Matrix (double**d, int a, int b); 
+    d = new int*[a];
+    for (int i = 0; i<a; i++) 
+        d[i] = new int [b];
+    Matrix (d,  a, b); 
     do
     {
         int choise;
@@ -35,9 +43,9 @@ int main()
             cin>>elem;
             if(i<a && j<b)
             {
-                void add_elem(double** d, int i, int j, double elem);
+                add_elem(d, i, j, elem);
                 cout <<endl;
-                void print(double** d, int a, int b);
+                print(d,a, b);
                 cout <<endl;
                 break;
             }
@@ -47,9 +55,9 @@ int main()
                 break;
             }
             case 2: 
-            double** add_rows(double** d, int a, int b);
+            add_rows(d, a, b);
             cout << endl; 
-            void print(double** d, int a, int b);
+            print(d, a, b);
             cout <<endl;
             break;
             case 3:
@@ -58,9 +66,9 @@ int main()
             cin >>j>>endl;
             if(i<a && j<b)
             {
-                void delet_elem (double** d, int a, int b);
+                delet_elem (d, a, b);
                 cout <<endl;
-                void print(double** d, int a, int b);
+                print(d, a, b);
                 cout <<endl;
                 break;
             }
@@ -70,9 +78,9 @@ int main()
                 break;
             }
             case 4:
-            double** delet_rows(double** d, int a, int b);
+            delet_rows(d, a, b);
             cout<<endl;
-            void print(double** d, int a, int b);
+            print(d, a, b);
             cout <<endl;
             break;
         default:
