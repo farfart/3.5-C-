@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//описуєм створені функції
+//Г®ГЇГЁГ±ГіВєГ¬ Г±ГІГўГ®Г°ГҐГ­Ві ГґГіГ­ГЄГ¶ВіВї
 
 void Matrix(double** d, int a , int b )
 {
@@ -15,7 +15,7 @@ void Matrix(double** d, int a , int b )
 	}
 
 }
-// Виводимо матрицю на екран 
+// Г‚ГЁГўГ®Г¤ГЁГ¬Г® Г¬Г ГІГ°ГЁГ¶Гѕ Г­Г  ГҐГЄГ°Г Г­ 
 void print(double** d, int a, int b)
 {
 	for (int i = 0; i < a; i++)
@@ -27,13 +27,7 @@ void print(double** d, int a, int b)
 	}
 }
 
-//Додавання елементів
-
-bool isValidIndex(int row, int col)  
-{
-	return row >= 0 && row < 7 && col >= 0 && col < 7;
-}
-
+//Г„Г®Г¤Г ГўГ Г­Г­Гї ГҐГ«ГҐГ¬ГҐГ­ГІВіГў
 
 void add_elem(double** d, int i, int j, double elem)
 {
@@ -42,7 +36,7 @@ void add_elem(double** d, int i, int j, double elem)
 
 
 
-//Додавання рядків
+//Г„Г®Г¤Г ГўГ Г­Г­Гї Г°ГїГ¤ГЄВіГў
 double** add_rows(double** d, int a, int b)
 {
 	double** dd = new double*[a + 1];
@@ -60,14 +54,14 @@ double** add_rows(double** d, int a, int b)
 
 }
 
-//Видалення елементів 
+//Г‚ГЁГ¤Г Г«ГҐГ­Г­Гї ГҐГ«ГҐГ¬ГҐГ­ГІВіГў 
 void delet_elem(double** d, int i, int j)
 {
 	d[i][j] = 0;
 }
 
 
-//Видалення рядків 
+//Г‚ГЁГ¤Г Г«ГҐГ­Г­Гї Г°ГїГ¤ГЄВіГў 
 double** delet_rows(double** d, int a, int b)
 {
 	double** dd = new double* [a - 1];
