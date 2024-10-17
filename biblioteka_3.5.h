@@ -1,21 +1,21 @@
 #pragma once
 #include <iostream>
 
-//створюємо функції
+//СЃС‚РІРѕСЂСЋС”РјРѕ С„СѓРЅРєС†С–С—
 
-// ініціалізуємо матрицю
-void Matrix (double**d, int a, int b); // а - рядок, b - колонки
+// С–РЅС–С†С–Р°Р»С–Р·СѓС”РјРѕ РјР°С‚СЂРёС†СЋ
+void Matrix (double**d, int a, int b); // Р° - СЂСЏРґРѕРє, b - РєРѕР»РѕРЅРєРё
 
-// Виводимо матрицю на екран 
+// Р’РёРІРѕРґРёРјРѕ РјР°С‚СЂРёС†СЋ РЅР° РµРєСЂР°РЅ 
 void print(double** d, int a, int b);
 
-//Додавання елементів
+//Р”РѕРґР°РІР°РЅРЅСЏ РµР»РµРјРµРЅС‚С–РІ
 void add_elem(double** d, int i, int j, double elem);
-//Додавання рядків
+//Р”РѕРґР°РІР°РЅРЅСЏ СЂСЏРґРєС–РІ
 double** add_rows(double** d, int a, int b);
 
-//Видалення елементів 
-void delet_elem (double** d, int a, int b);
+//Р’РёРґР°Р»РµРЅРЅСЏ РµР»РµРјРµРЅС‚С–РІ 
+void delet_elem (double** d, int a, int b );
 
-//Видалення рядків 
-double** delet_rows(double** d, int a, int b);
+//Р’РёРґР°Р»РµРЅРЅСЏ СЂСЏРґРєС–РІ 
+double** delet_rows(double** d, int a, int b, int i );
