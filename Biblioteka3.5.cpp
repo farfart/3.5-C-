@@ -2,7 +2,7 @@
 * Розробити бібліотеку функцій для роботи з матрицями дробових чисел(ініціалізація,
     виведення на екран, видалення та додавання елементів, рядків).
 */
-#include "biblioteka_3.5"
+#include "biblioteka_3.5.h"
 #include <iostream>
 #include<Windows.h>
 using namespace std;
@@ -11,87 +11,114 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    double **d;
-    int a;
-    int b;
-    
-    
-    cout <<"Введіть розмірність масиву:"<< endl;
-    cin>> "кількість рядків: ">>a>>endl;
-    cin>> "кількість колонок: ">>b>>endl;
-    d = new int*[a];
-    for (int i = 0; i<a; i++) 
-        d[i] = new int [b];
-    Matrix (d,  a, b); 
+    double** d;
+    int a, b, i, j;
+    double elem;
+    do {
+        cout << "Введіть розмірність масиву:" << endl;
+        cout << "кількість рядків: ";
+        cin >> a;
+        cout << "кількість колонок: ";
+        cin >> b;
+        if (a < 0|| b < 0)
+        {
+            cout << "Помилка при ведені. Повторіть спробу\n";
+            cout << endl;
+        }
+    } while (a < 0 || b < 0);
+
+    d = new double* [a];                //Правило відведення пам'яті для масиву: відводимо пам'ять для рядків, а вже потім для колонків
+    for (int i = 0; i < a; i++)
+        d[i] = new double[b];
+    Matrix(d, a, b);
+    int choise;
     do
     {
-        int choise;
-        cout << "1: Додати елемент\t";
-        cout << "2: Додати рядок\t";
-        cout << "3: Видалити елемент\t";
-        cout << "4: Видалити рядок\t";
-        cout << "0: Вихід з програми\t";
+        
+        cout << "1: Додати елемент\n";
+        cout << "2: Додати рядок\n";
+        cout << "3: Видалити елемент\n";
+        cout << "4: Видалити рядок\n";
+        cout << "5: Надрукувати матрицю\n";
+        cout << "0: Вихід з програми\n";
         cin >> choise;
 
         switch (choise)
         {
         case 1:
-            cout << " Введіть х та у позицію елемента по черзі"<< endl; 
-            cin >> i>> endl; 
-            cin>>j>>endl;
-            cout<<"Введіть ваш елемент"<<endl;
-            cin>>elem;
-            if(i<a && j<b)
+            cout << " Введіть х та у позицію елемента по черзі" << endl;
+            cout << "x: ";
+            cin >> i;
+            cout << "y: ";
+            cin >> j;
+            if (i >= 0 && j >= 0)
             {
-                add_elem(d, i, j, elem);
-                cout <<endl;
-                print(d,a, b);
-                cout <<endl;
-                break;
+                cout << "Введіть ваш елемент" << endl;
+                cin >> elem;
+                if (i < a && j < b)
+                {
+                    add_elem(d, i, j, elem);
+                    cout << endl;
+                    print(d, a, b);
+                    cout << endl;
+                    break;
+                }
+                else
+                {
+                    cout << "Позиції х та у виходять за межі масиву\n";
+                    cout << endl;
+                    break;
+                }
             }
             else
             {
-                cout <<"Позиції х та у виходять за межі масиву";
-                break;
+                cout << "Таких позицій не існує. Повторіть спробу\n";
+                cout << endl;
             }
-            case 2: 
-            add_rows(d, a, b);
-            cout << endl; 
-            print(d, a, b);
-            cout <<endl;
             break;
-            case 3:
-            cout << " Введіть х та у позицію елемента по черзі"<< endl; 
-            cin >> i>> endl; 
-            cin >>j>>endl;
-            if(i<a && j<b)
+        case 2:
+            d=add_rows(d, a, b);
+            a++;
+            cout << endl;
+            print(d, a, b);
+            cout << endl;
+            break;
+        case 3:
+            cout << " Введіть х та у позицію елемента по черзі" << endl;
+            cin >> i;
+            cin >> j;
+            if (i < a && j < b)
             {
-                delet_elem (d, a, b);
-                cout <<endl;
+                delet_elem(d, i, j);
+                cout << endl;
                 print(d, a, b);
-                cout <<endl;
+                cout << endl;
                 break;
             }
             else
             {
-                cout <<"Позиції х та у виходять за межі масиву";
+                cout << "Позиції х та у виходять за межі масиву";
                 break;
             }
-            case 4:
-            delet_rows(d, a, b);
-            cout<<endl;
+        case 4:
+           delet_rows(d,a, b, i);
+            cout << endl;
             print(d, a, b);
-            cout <<endl;
+            cout << endl;
+            break;
+        case 5:
+            cout << endl;
+            print( d,  a, b);
+        case 0:
             break;
         default:
-            cout <<"Помилка, виберіть один з заданих варіантів";
+            cout << "Помилка, виберіть один з заданих варіантів\n";
             break;
         }
 
-    } while (choise != 0)
-   return 0;
+    } while (choise != 0);
+        return 0;
 }
-
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
